@@ -1,0 +1,46 @@
+a {
+  font-size: 1.5em;
+  text-decoration: none;
+  color: inherit;
+}
+
+#screenshoot {
+  cursor: pointer;
+}
+
+#result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 90dvh;
+}
+
+#activity {
+  font-size: 1.5em;
+  font-weight: 600;
+  text-align: center;
+  max-width: 60dvw;
+}
+
+#type {
+  background-color: crimson;
+  font-size: 24px;
+  font-weight: 600;
+  color: white;
+  padding: 8px 16px;
+  display: none;
+}
+
+.coba {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  text-decoration: none;
+}
+
+#cap {
+  font-weight: 600;
+}
