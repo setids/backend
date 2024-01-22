@@ -3,39 +3,45 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quotes</title>
-    <!-- CSS + JS -->
+    <title>Quote of the Day</title>
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css" />
     <link
       rel="stylesheet"
-      href="https://unpkg.com/onsenui/css/onsen-css-components.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
-    <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
   </head>
   <body>
-    <ons-page>
-      <ons-toolbar>
-        <div id="cap" class="center">CAPTURE QUOTES</div>
-        <div class="right">
-          <ons-toolbar-button>
-            <a download id="screenshoot"
-              ><ons-icon icon="md-camera"></ons-icon
-            ></a>
-          </ons-toolbar-button>
+    <div class="wrapper" id="result">
+      <header>Quote of the Day</header>
+
+      <div class="content">
+        <div class="quote-area">
+          <i class="fas fa-quote-left"></i>
+          <p class="quote" id="quote">Never give up because</p>
+          <i class="fas fa-quote-right"></i>
         </div>
-      </ons-toolbar>
 
-      <ons-fab position="bottom right" onclick="generateIdea()">
-        <ons-icon icon="md-plus"></ons-icon>
-      </ons-fab>
-
-      <div id="result">
-        <h1 id="activity"></h1>
-        <p id="type"></p>
+        <div class="author">
+          <!-- <span>__</span> -->
+          <span class="name" id="author">Setiawan</span>
+        </div>
       </div>
-    </ons-page>
+
+      <div class="buttons">
+        <div class="features">
+          <ul>
+            <li class="speech"><i class="fas fa-volume-up"></i></li>
+            <li class="copy"><i class="fas fa-copy"></i></li>
+            <li class="screenshoot">
+              <a download="" id="screenshoot" class="fas fa-camera"></a>
+            </li>
+          </ul>
+          <button onclick="generateIdea()">New Quote</button>
+        </div>
+      </div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>

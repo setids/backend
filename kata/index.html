@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quotes</title>
+    <!-- CSS + JS -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/onsenui/css/onsen-css-components.min.css"
+    />
+    <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  </head>
+  <body>
+    <ons-page>
+      <ons-toolbar>
+        <div id="cap" class="center">CAPTURE QUOTES</div>
+        <div class="right">
+          <ons-toolbar-button>
+            <a download id="screenshoot"
+              ><ons-icon icon="md-camera"></ons-icon
+            ></a>
+          </ons-toolbar-button>
+        </div>
+      </ons-toolbar>
+
+      <ons-fab position="bottom right" onclick="generateIdea()">
+        <ons-icon icon="md-plus"></ons-icon>
+      </ons-fab>
+
+      <div id="result">
+        <h1 id="activity"></h1>
+        <p id="type"></p>
+      </div>
+    </ons-page>
+    <script src="script.js"></script>
+  </body>
+</html>

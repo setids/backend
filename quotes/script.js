@@ -1,12 +1,21 @@
+const quoteBtn = document.querySelector("button");
+const copyBtn = document.querySelector(".copy");
+const quoteText = document.querySelector(".quote");
+const authorName = document.querySelector(".author");
+const speech = document.querySelector(".speech");
+synth = speechSynthesis;
+
 async function generateIdea() {
   const result = document.getElementById("result");
-  const activity = document.getElementById("activity");
-  const type = document.getElementById("type");
+  const quote = document.getElementById("quote");
+  const author = document.getElementById("author");
   const apiKey = "aVXFTLU+zUdVIjNbsPUgbw==VBGKLy8lwxRlOVjf";
   const screenshoot = document.getElementById("screenshoot");
-  const plusButton = document.querySelector(".fab__icon");
-  const iconElement = document.querySelector("ons-icon");
+  const icon = document.querySelector("icon");
   let count = 0;
+
+  quoteBtn.classList.add("loading");
+  quoteBtn.innerText = "Loading Quote...";
 
   const options = {
     method: "GET",
@@ -20,31 +29,37 @@ async function generateIdea() {
 
   const api = await response.json();
 
-  activity.textContent = api[0].quote;
-  type.textContent = api[0].author;
+  quote.textContent = api[0].quote;
+  author.textContent = api[0].author;
 
-  type.style.display = "block";
+  quoteBtn.classList.remove("loading");
+  quoteBtn.innerText = "New Quote";
 
   screenshoot.addEventListener("click", () => {
     count && location.reload();
 
     html2canvas(result).then((callback) => {
       screenshoot.setAttribute("href", callback.toDataURL("image/png"));
-      screenshoot.setAttribute("download", "quotes.png");
+      screenshoot.setAttribute("download", "quote.png");
       count = 1;
     });
-
-    if (iconElement) {
-      iconElement.setAttribute("icon", "md-download");
-    }
-  });
-
-  plusButton.addEventListener("click", () => {
-    screenshoot.removeAttribute("href");
-    count = 0;
-
-    if (iconElement) {
-      iconElement.setAttribute("icon", "md-camera");
-    }
   });
 }
+
+speech.addEventListener("click", () => {
+  if (!quoteBtn.classList.contains("loading")) {
+    let utterance = new SpeechSynthesisUtterance(
+      `${quoteText.innerText} by ${authorName.innerText}`
+    );
+    synth.speak(utterance);
+    setInterval(() => {
+      !synth.speaking
+        ? speech.classList.remove("active")
+        : speech.classList.add("active");
+    }, 10);
+  }
+});
+
+copyBtn.addEventListener("click", () => {
+  navigator.clipboard.writeText(quoteText.innerText);
+});
