@@ -60,7 +60,7 @@ header,
 .quote-area .quote {
   font-size: 22px;
   text-align: center;
-  word-break: break-all;
+  /* word-break: break-all; */
 }
 
 .content .author {
@@ -106,6 +106,20 @@ header,
   transition: all 0.3s ease;
 }
 
+.features a {
+  margin: 0 5px;
+  height: 47px;
+  width: 47px;
+  display: flex;
+  cursor: pointer;
+  color: #5372f0;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #5372f0;
+  transition: all 0.3s ease;
+}
+
 .features ul li a {
   text-decoration: none;
   color: inherit;
@@ -116,6 +130,11 @@ header,
 }
 
 ul li:is(:hover, .active) {
+  color: #fff;
+  background-color: #5372f0;
+}
+
+a:is(:hover, .active) {
   color: #fff;
   background-color: #5372f0;
 }
@@ -138,4 +157,8 @@ ul .speech.active {
 .buttons button.loading {
   opacity: 0.7;
   pointer-events: none;
+}
+
+.rounded {
+  border-radius: 15px;
 }
